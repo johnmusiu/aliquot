@@ -12,10 +12,10 @@ function mpesaB2Creceiver()
     $xml = new \DOMDocument();
     $xml->loadXML($result);
 
-    logresult($xml);
-
     $xm = new \DOMDocument();
     $xm->loadXML($xml->textContent);
+    logresult($xm);
+
     //submitDummyDataToDB($xm);
     $data['transaction_code'] = $xm->getElementsByTagName('TransactionID')->item(0)->nodeValue;
     $data['ConversationID'] = $xm->getElementsByTagName('ConversationID')->item(0)->nodeValue;
@@ -89,7 +89,7 @@ function logresult($result){
     }
     else
     {
-        $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', "$result")";
+        $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
             print_r("success raw data");
