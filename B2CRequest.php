@@ -195,7 +195,8 @@ function sendRequest($curlData,$phone,$amount)
      * SUCCESSFUL : 100
      * ERROR : 101
      */
-
+    print_r($result);
+    exit;
     if ($result) {
         logTransaction($amount,$phone);
         curl_close($curl);
@@ -225,7 +226,7 @@ function logTransaction($amount,$phone)
         $sql = "INSERT INTO payments(`id`, `phone`, `amount`)VALUES('', '$phone', '$amount')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
-            //print_r("success insert");
+            print_r("success insert");
         }else{
             print_r("Error while inserting ".mysqli_error($mysqli));
         }
