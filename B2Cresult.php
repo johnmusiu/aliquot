@@ -9,10 +9,11 @@ function mpesaB2Creceiver()
 {
 
     $result=file_get_contents('php://input');
-
-    logresult($result);
     $xml = new \DOMDocument();
     $xml->loadXML($result);
+
+    logresult($xml);
+
     $xm = new \DOMDocument();
     $xm->loadXML($xml->textContent);
     //submitDummyDataToDB($xm);
