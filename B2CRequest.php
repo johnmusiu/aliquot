@@ -15,72 +15,72 @@ define('result_url', "http://52.207.189.106/B2Cresult.php");
 //define('SSL_PASS', "");
 //define('APICRYPT_PATH', "");
 
-sendmoney("",100);
-
+print_r(sendmoney("0728355429",100));
+exit;
 function sendmoney($phone, $amount)
 {
 
-    date_default_timezone_set('Africa/Nairobi');
-    $no = "254" . substr($phone, -9);
+//    date_default_timezone_set('Africa/Nairobi');
+//    $no = "254" . substr($phone, -9);
+//
+//    $timestamp_ = date("YdmHis");
+//    //$real_pass = base64_encode(hash('sha256', SPID . "" . PASSWORD . "" . $timestamp_));
+//    $real_pass = "MzY3MDVDMjlGREREREUzRUM5OTE5MEM5RDVEMjg2NDRFQjI1OEU2RkJBQTZGRDRBOTBEMjg0MUY0ODhGMDk2Qw==";
+//    //$securityCredential = self::getSecurityCredential(initiator_pass);
+//    $securityCredential = "";
+//    //self::getSecurityCredential(initiator_pass);
+//    $rand = rand(123456, 654321);
+//    $originId = SPID . "_" . initiator_username . "_" . $rand;
+//    $type = 2;
+//    $third_party_id = null;
+//    $reqTime = date('Y-m-d') . "T" . date('H:i:s') . ".0000521Z"; //2014-10-21T09:47:19.0000521Z
 
-    $timestamp_ = date("YdmHis");
-    //$real_pass = base64_encode(hash('sha256', SPID . "" . PASSWORD . "" . $timestamp_));
-    $real_pass = "MzY3MDVDMjlGREREREUzRUM5OTE5MEM5RDVEMjg2NDRFQjI1OEU2RkJBQTZGRDRBOTBEMjg0MUY0ODhGMDk2Qw==";
-    //$securityCredential = self::getSecurityCredential(initiator_pass);
-    $securityCredential = "";
-    //self::getSecurityCredential(initiator_pass);
-    $rand = rand(123456, 654321);
-    $originId = SPID . "_" . initiator_username . "_" . $rand;
-    $type = 2;
-    $third_party_id = null;
-    $reqTime = date('Y-m-d') . "T" . date('H:i:s') . ".0000521Z"; //2014-10-21T09:47:19.0000521Z
 
-
-    $curlData = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
-                                    <s:Header>
-            <h:RequestSOAPHeader xmlns:h="http://www.huawei.com.cn/schema/common/v2_1" xmlns="http://www.huawei.com.cn/schema/common/v2_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-            <h:spId>' . SPID . '</h:spId>
-            <h:spPassword>' . $real_pass . '</h:spPassword>
-            <h:serviceId>' . SERVICEID . '</h:serviceId>
-            <h:timeStamp>' . $timestamp_ . '</h:timeStamp>
-            </h:RequestSOAPHeader>
-            </s:Header>
-                                    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-            <RequestMsg xmlns="http://api-v1.gen.mm.vodafone.com/mminterface/request">
-            <![CDATA[<request xmlns="http://api-v1.gen.mm.vodafone.com/mminterface/request">
-            <Transaction>
-            <CommandID>BusinessPayment</CommandID>
-            <OriginatorConversationID>' . $originId . '</OriginatorConversationID>
-            <Parameters><Parameter><Key>Amount</Key><Value>' . $amount . '</Value></Parameter></Parameters>
-            <ReferenceData><ReferenceItem><Key>QueueTimeoutURL</Key><Value>' . result_url . '</Value></ReferenceItem></ReferenceData>
-            <Timestamp>' . $reqTime . '</Timestamp></Transaction>
-            <Identity>
-            <Caller>
-            <CallerType>' . $type . '</CallerType>
-            <ThirdPartyID>' . SPID . '</ThirdPartyID>
-            <Password>' . PASSWORD . '</Password>
-            <CheckSum></CheckSum>
-            <ResultURL>' . result_url . '</ResultURL>
-            </Caller>
-                <Initiator>
-                        <IdentifierType>11</IdentifierType>
-                        <Identifier>' . initiator_username . '</Identifier>
-                        <SecurityCredential>' . $securityCredential . '</SecurityCredential>
-                        <ShortCode>' . B2CPaybill . '</ShortCode>
-                    </Initiator>
-            <PrimaryParty>
-            <IdentifierType>4</IdentifierType>
-            <Identifier>' . B2CPaybill . '</Identifier>
-            </PrimaryParty>
-            <ReceiverParty>
-            <IdentifierType>1</IdentifierType>
-            <Identifier>' . $no . '</Identifier>
-            </ReceiverParty>
-            </Identity>
-
-            <KeyOwner>1</KeyOwner></request>]]></RequestMsg>
-            </s:Body>
-                                    </s:Envelope>';
+//    $curlData = '<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+//                                    <s:Header>
+//            <h:RequestSOAPHeader xmlns:h="http://www.huawei.com.cn/schema/common/v2_1" xmlns="http://www.huawei.com.cn/schema/common/v2_1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+//            <h:spId>' . SPID . '</h:spId>
+//            <h:spPassword>' . $real_pass . '</h:spPassword>
+//            <h:serviceId>' . SERVICEID . '</h:serviceId>
+//            <h:timeStamp>' . $timestamp_ . '</h:timeStamp>
+//            </h:RequestSOAPHeader>
+//            </s:Header>
+//                                    <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+//            <RequestMsg xmlns="http://api-v1.gen.mm.vodafone.com/mminterface/request">
+//            <![CDATA[<request xmlns="http://api-v1.gen.mm.vodafone.com/mminterface/request">
+//            <Transaction>
+//            <CommandID>BusinessPayment</CommandID>
+//            <OriginatorConversationID>' . $originId . '</OriginatorConversationID>
+//            <Parameters><Parameter><Key>Amount</Key><Value>' . $amount . '</Value></Parameter></Parameters>
+//            <ReferenceData><ReferenceItem><Key>QueueTimeoutURL</Key><Value>' . result_url . '</Value></ReferenceItem></ReferenceData>
+//            <Timestamp>' . $reqTime . '</Timestamp></Transaction>
+//            <Identity>
+//            <Caller>
+//            <CallerType>' . $type . '</CallerType>
+//            <ThirdPartyID>' . SPID . '</ThirdPartyID>
+//            <Password>' . PASSWORD . '</Password>
+//            <CheckSum></CheckSum>
+//            <ResultURL>' . result_url . '</ResultURL>
+//            </Caller>
+//                <Initiator>
+//                        <IdentifierType>11</IdentifierType>
+//                        <Identifier>' . initiator_username . '</Identifier>
+//                        <SecurityCredential>' . $securityCredential . '</SecurityCredential>
+//                        <ShortCode>' . B2CPaybill . '</ShortCode>
+//                    </Initiator>
+//            <PrimaryParty>
+//            <IdentifierType>4</IdentifierType>
+//            <Identifier>' . B2CPaybill . '</Identifier>
+//            </PrimaryParty>
+//            <ReceiverParty>
+//            <IdentifierType>1</IdentifierType>
+//            <Identifier>' . $no . '</Identifier>
+//            </ReceiverParty>
+//            </Identity>
+//
+//            <KeyOwner>1</KeyOwner></request>]]></RequestMsg>
+//            </s:Body>
+//                                    </s:Envelope>';
 
     $curlData = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request">
 <soapenv:Header>
@@ -184,6 +184,9 @@ function sendRequest($curlData,$phone,$amount)
     //curl_setopt($curl, CURLOPT_HEADERFUNCTION, 'read_header'); // get header
 
     $result = curl_exec($curl);
+
+    print_r($result);
+    exit;
     if (curl_errno($curl)) {
         echo 'Curl Error: ' . curl_error($curl) . "\n\n";
     }
