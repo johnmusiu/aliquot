@@ -185,8 +185,6 @@ function sendRequest($curlData,$phone,$amount)
 
     $result = curl_exec($curl);
 
-    print_r($result);
-    exit;
     if (curl_errno($curl)) {
         echo 'Curl Error: ' . curl_error($curl) . "\n\n";
     }
