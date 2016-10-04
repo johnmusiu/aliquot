@@ -88,7 +88,7 @@ function logresult($result){
     }
     else
     {
-        $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
+        $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', "$result")";
         $result = $mysqli->query($sql);
         if($result==TRUE){
             print_r("success raw data");
