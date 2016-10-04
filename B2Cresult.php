@@ -10,6 +10,7 @@ function mpesaB2Creceiver()
     $xml->loadXML($result);
     $xm = new \DOMDocument();
     $xm->loadXML($xml->textContent);
+    //submitDummyDataToDB($xm);
     $data['transaction_code'] = $xm->getElementsByTagName('TransactionID')->item(0)->nodeValue;
     $data['ConversationID'] = $xm->getElementsByTagName('ConversationID')->item(0)->nodeValue;
     $data['ResultCode'] = $xm->getElementsByTagName('ResultCode')->item(0)->nodeValue;
@@ -24,6 +25,7 @@ function mpesaB2Creceiver()
 
     $data['phone'] = $phone;
     $data['name'] = $person_array[1];
+
     submitToDB($data);
 
         $successResponse = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request">
@@ -52,19 +54,21 @@ function submitToDB($data){
     }
     else
     {
+
         $name = $data['name'];
         $transaction_code = $data['transaction_code'];
         $phone = $data['phone'];
         $amount = $data['TransactionAmount'];
         $date = $data['TransactionCompletedDateTime'];
-        $sql = "INSERT INTO payments(`id`,`name`, `phone`, `transaction_id`, `amount`, `account`, `transaction_time`)VALUES('', '$name', '$phone', '$transaction_code', '$amount', '$data[NULL]', '$date')";
+        $sql = "INSERT INTO b2cpayments(`id`,`name`, `phone`, `transaction_id`, `amount`, `status`, `transaction_time`)VALUES('', '$name', '$phone', '$transaction_code', '$amount', 1, '$date')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
-            //print_r("success insert");
+            print_r("success insert");
         }else{
             print_r("Error while inserting ".mysqli_error($mysqli));
         }
     }
 
 }
+
 
