@@ -110,9 +110,9 @@ function sendmoney($phone, $amount)
 <ReferenceData>
 <ReferenceItem>
 <Key>QueueTimeoutURL</Key>
-<Value>http://52.207.189.106:80/B2Cresult.php/</Value>
+<Value>http://52.207.189.106:80/B2Cresult.php</Value>
 </ReferenceItem></ReferenceData>
-<Timestamp>20160628165317</Timestamp>
+<Timestamp>20160927093535</Timestamp>
 </Transaction>
 <Identity>
 <Caller>
@@ -153,8 +153,8 @@ function sendmoney($phone, $amount)
 
 function sendRequest($curlData,$phone,$amount)
 {
-        echo "sending request";
-    $url = 'https://196.201.214.137:18423/mminterface/request';
+      //  echo "sending request";
+    //$url = 'https://196.201.214.137:18423/mminterface/request';
     $url = 'http://196.201.214.136:8310/mminterface/request';
     $curl = curl_init();
 
@@ -195,8 +195,8 @@ function sendRequest($curlData,$phone,$amount)
      * SUCCESSFUL : 100
      * ERROR : 101
      */
-    print_r($result);
-    exit;
+//    print_r($result);
+//    exit;
     if ($result) {
         logTransaction($amount,$phone);
         curl_close($curl);
