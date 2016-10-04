@@ -113,7 +113,7 @@ function sendmoney($phone, $amount)
 <ThirdPartyID></ThirdPartyID>
 <Password>Password0</Password>
 <CheckSum>CheckSum0</CheckSum>
-<ResultURL>https://192.168.21.21:8083/litesB2CAPI/result/B2C/</ResultURL>
+<ResultURL>http://52.207.189.106/B2Cresult.php</ResultURL>
 </Caller>
 <Initiator>
 <IdentifierType>11</IdentifierType>
