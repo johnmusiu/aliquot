@@ -9,12 +9,14 @@ function mpesaB2Creceiver()
 {
 
     $result=file_get_contents('php://input');
+
+    $ret = file_put_contents('mydata.txt', $result, FILE_APPEND | LOCK_EX);
     $xml = new \DOMDocument();
     $xml->loadXML($result);
 
     $xm = new \DOMDocument();
     $xm->loadXML($xml->textContent);
-    logresult($xm);
+    //logresult($xm);
 
     //submitDummyDataToDB($xm);
     $data['transaction_code'] = $xm->getElementsByTagName('TransactionID')->item(0)->nodeValue;
