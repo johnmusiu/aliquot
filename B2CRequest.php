@@ -85,10 +85,10 @@ function sendmoney($phone, $amount)
     $curlData = '<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:req="http://api-v1.gen.mm.vodafone.com/mminterface/request">
 <soapenv:Header>
 <tns:RequestSOAPHeader xmlns:tns="http://www.huawei.com/schema/osg/common/v2_1">
-<tns:spId>100438</tns:spId>
-<tns:spPassword>M2Q2NDNjN2JlNWFiYzFiNmMxZTRiMzI0N2FlZDE4YTBlN2VhOTFkMmZkMjA3NDcyMTA5M2VhOTFmOWZmYWYxNQ==</tns:spPassword>
-<tns:timeStamp>20160628165317</tns:timeStamp>
-<tns:serviceId>100438000</tns:serviceId>
+<tns:spId>888777</tns:spId>
+<tns:spPassword>ZjYwY2ZjYmI1YTRjZmEzY2JlNzNhNzEzODI0YzBlZjYwYmFlZWFmZGFmNTBkMjA4MWMyMGM3MDA3NzA0ZWQzMg==</tns:spPassword>
+<tns:timeStamp>20160927093535</tns:timeStamp>
+<tns:serviceId>888777000</tns:serviceId>
 </tns:RequestSOAPHeader>
 </soapenv:Header>
 <soapenv:Body>
