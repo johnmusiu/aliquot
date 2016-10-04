@@ -6,6 +6,8 @@ function mpesaB2Creceiver()
 {
 
     $result=file_get_contents('php://input');
+
+    logresult($result);
     $xml = new \DOMDocument();
     $xml->loadXML($result);
     $xm = new \DOMDocument();
@@ -66,6 +68,29 @@ function submitToDB($data){
             print_r("success insert");
         }else{
             print_r("Error while inserting ".mysqli_error($mysqli));
+        }
+    }
+
+    function logresult($result){
+
+        // Connect to db
+        $db = new DB_CONNECT();
+        $mysqli = $db->db_con;
+
+        if($mysqli->connect_errno)
+        {
+            echo "unable to connect";
+        }
+        else
+        {
+            $date = $data['TransactionCompletedDateTime'];
+            $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
+            $result = $mysqli->query($sql);
+            if($result==TRUE){
+                print_r("success raw data");
+            }else{
+                print_r("Error while inserting ".mysqli_error($mysqli));
+            }
         }
     }
 
