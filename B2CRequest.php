@@ -110,7 +110,7 @@ function sendmoney($phone, $amount)
 <ReferenceData>
 <ReferenceItem>
 <Key>QueueTimeoutURL</Key>
-<Value>https://192.168.21.21:8083/litesB2CAPI/timeout/</Value>
+<Value>http://52.207.189.106:80/B2Cresult.php/</Value>
 </ReferenceItem></ReferenceData>
 <Timestamp>20160628165317</Timestamp>
 </Transaction>
@@ -120,7 +120,7 @@ function sendmoney($phone, $amount)
 <ThirdPartyID></ThirdPartyID>
 <Password>Password0</Password>
 <CheckSum>CheckSum0</CheckSum>
-<ResultURL>http://52.207.189.106:80/B2Cresult.php</ResultURL>
+<ResultURL>http://52.207.189.106:80/B2Cresult.php/</ResultURL>
 </Caller>
 <Initiator>
 <IdentifierType>11</IdentifierType>
