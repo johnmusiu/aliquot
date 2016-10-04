@@ -31,8 +31,8 @@ function sendmoney($phone, $amount)
 //    //$securityCredential = self::getSecurityCredential(initiator_pass);
 //    $securityCredential = "";
 //    //self::getSecurityCredential(initiator_pass);
-//    $rand = rand(123456, 654321);
-//    $originId = SPID . "_" . initiator_username . "_" . $rand;
+    $rand = rand(123456, 654321);
+    $originId = SPID . "_" . initiator_username . "_" . $rand;
 //    $type = 2;
 //    $third_party_id = null;
 //    $reqTime = date('Y-m-d') . "T" . date('H:i:s') . ".0000521Z"; //2014-10-21T09:47:19.0000521Z
@@ -100,7 +100,7 @@ function sendmoney($phone, $amount)
 <Transaction>
 <CommandID>PromotionPayment</CommandID>
 <LanguageCode>0</LanguageCode>
-<OriginatorConversationID>573309_LITES_20160628165317123123</OriginatorConversationID>
+<OriginatorConversationID>'.$originId.'</OriginatorConversationID>
 <ConversationID></ConversationID>
 <Remark>0</Remark>
 <Parameters><Parameter>
