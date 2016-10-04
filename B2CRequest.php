@@ -26,7 +26,9 @@ function sendmoney($phone, $amount)
     $timestamp_ = date("YdmHis");
     //$real_pass = base64_encode(hash('sha256', SPID . "" . PASSWORD . "" . $timestamp_));
     $real_pass = "MzY3MDVDMjlGREREREUzRUM5OTE5MEM5RDVEMjg2NDRFQjI1OEU2RkJBQTZGRDRBOTBEMjg0MUY0ODhGMDk2Qw==";
-    $securityCredential = self::getSecurityCredential(initiator_pass);
+    //$securityCredential = self::getSecurityCredential(initiator_pass);
+    $securityCredential = "";
+    //self::getSecurityCredential(initiator_pass);
     $rand = rand(123456, 654321);
     $originId = SPID . "_" . initiator_username . "_" . $rand;
     $type = 2;
