@@ -74,28 +74,29 @@ function submitToDB($data){
         }
     }
 
-    function logresult($result){
-
-        // Connect to db
-        $db = new DB_CONNECT();
-        $mysqli = $db->db_con;
-
-        if($mysqli->connect_errno)
-        {
-            echo "unable to connect";
-        }
-        else
-        {
-            $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
-            $result = $mysqli->query($sql);
-            if($result==TRUE){
-                print_r("success raw data");
-            }else{
-                print_r("Error while inserting ".mysqli_error($mysqli));
-            }
-        }
-    }
 
 }
+function logresult($result){
+
+    // Connect to db
+    $db = new DB_CONNECT();
+    $mysqli = $db->db_con;
+
+    if($mysqli->connect_errno)
+    {
+        echo "unable to connect";
+    }
+    else
+    {
+        $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
+        $result = $mysqli->query($sql);
+        if($result==TRUE){
+            print_r("success raw data");
+        }else{
+            print_r("Error while inserting ".mysqli_error($mysqli));
+        }
+    }
+}
+
 
 
