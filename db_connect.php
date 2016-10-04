@@ -22,7 +22,7 @@ class DB_CONNECT {
 
 	       // $db = mysql_select_db(DB_DATABASE) or die(mysql_error());
 	       $this->db_con = new mysqli(DB_SERVER, DB_USER, DB_PASSWORD, DB_DATABASE);
-             echo "success";
+             //echo "success";
       }
 
       function close(){
