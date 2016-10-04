@@ -153,7 +153,7 @@ function sendRequest($curlData,$phone,$amount)
 {
         echo "sending request";
     $url = 'https://196.201.214.137:18423/mminterface/request';
-    $url = 'http://196.201.214.136:8010/mminterface/request';
+    $url = 'http://196.201.214.136:8310/mminterface/request';
     $curl = curl_init();
 
     curl_setopt($curl, CURLOPT_URL, $url);
