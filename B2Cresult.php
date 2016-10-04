@@ -83,7 +83,6 @@ function submitToDB($data){
         }
         else
         {
-            $date = $data['TransactionCompletedDateTime'];
             $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
             $result = $mysqli->query($sql);
             if($result==TRUE){
