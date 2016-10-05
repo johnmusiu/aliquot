@@ -120,7 +120,7 @@ function sendmoney($phone, $amount)
 <ThirdPartyID></ThirdPartyID>
 <Password>Password0</Password>
 <CheckSum>CheckSum0</CheckSum>
-<ResultURL>http://52.207.189.106:80/B2Cresult.php/</ResultURL>
+<ResultURL>http://52.207.189.106:8080/B2Cresult.php/</ResultURL>
 </Caller>
 <Initiator>
 <IdentifierType>11</IdentifierType>
