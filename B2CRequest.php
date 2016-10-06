@@ -148,8 +148,8 @@ function sendmoney($phone, $amount)
 function sendRequest($curlData,$phone,$amount)
 {
       //  echo "sending request";
-    //$url = 'https://196.201.214.137:18423/mminterface/request';
-    $url = 'http://196.201.214.136:8310/mminterface/request';
+    $url = 'https://196.201.214.137:18423/mminterface/request';
+//    $url = 'http://196.201.214.136:8310/mminterface/request';
     $curl = curl_init();
 
     curl_setopt($curl, CURLOPT_URL, $url);
@@ -168,11 +168,11 @@ function sendRequest($curlData,$phone,$amount)
     curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)');
 //CURLOPT_VERBOSE        => true,
 //curl_setopt($curl, CURLOPT_SSLCERT, '/var/www/html/sdp_apps/services/b2c/pkcs/testbroker.crt');
-    //curl_setopt($curl, CURLOPT_SSLCERT, '/var/www/server-inuka.pem');
-    //curl_setopt($curl, CURLOPT_SSLCERTTYPE, 'PEM');
+    curl_setopt($curl, CURLOPT_SSLCERT, '/var/www/server.crt');
+    curl_setopt($curl, CURLOPT_SSLCERTTYPE, 'PEM');
 
 //curl_setopt($curl, CURLOPT_SSLKEY, '/var/www/html/sdp_apps/services/b2c/pkcs/certs_chain.pem');
-    //curl_setopt($curl, CURLOPT_SSLKEY, '/var/www/server.key');
+    curl_setopt($curl, CURLOPT_SSLKEY, '/var/www/server.key');
     //curl_setopt($curl, CURLOPT_SSLKEYPASSWD, 'inuka');
 
     curl_setopt($curl, CURLOPT_POST, 1);
