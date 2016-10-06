@@ -134,7 +134,7 @@ function sendmoney($phone, $amount)
 </PrimaryParty>
 <ReceiverParty>
 <IdentifierType>1</IdentifierType>
-<Identifier>254708374149</Identifier>
+<Identifier>254791445875</Identifier>
 </ReceiverParty>
 </Identity>
 <KeyOwner>1</KeyOwner>
