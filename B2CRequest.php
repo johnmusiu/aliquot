@@ -28,7 +28,7 @@ function sendmoney($phone, $amount)
 //    $timestamp_ = date("YdmHis");
 //    //$real_pass = base64_encode(hash('sha256', SPID . "" . PASSWORD . "" . $timestamp_));
 //    $real_pass = "MzY3MDVDMjlGREREREUzRUM5OTE5MEM5RDVEMjg2NDRFQjI1OEU2RkJBQTZGRDRBOTBEMjg0MUY0ODhGMDk2Qw==";
-//    //$securityCredential = self::getSecurityCredential(initiator_pass);
+    $securityCredential = getSecurityCredential("Matr!x123");
 //    $securityCredential = "";
 //    //self::getSecurityCredential(initiator_pass);
     $rand = rand(123456, 654321);
@@ -124,9 +124,9 @@ function sendmoney($phone, $amount)
 </Caller>
 <Initiator>
 <IdentifierType>11</IdentifierType>
-<Identifier>akasozi</Identifier>
-<SecurityCredential>LJs2NSRNW5MhVvPyBrXNAb1XKqP84NabsWSiN76ThILVc5n8g+J4YjBOcGguRWgXsWgbaFC11tagcRTa1L7l1pvgkcYsyy9Y7QtqwGhK6EkfhHETW5XomCDOOsfsVWqrtXZtRnb2v2p6am5V3BubPi5teWPBA7me0KJ4+2lCi8Tc2+5O0WJ6gnjohW1y7PFYVx2F6/lQnjhIO/+o16fexGDCDoLrxtgPQvK9+ZCNuf2hP+6Ay8VE7c+RsP3DZkncN5QSK3uTTcbwGRB33gd76L622vEpiZhccC7OkzHNwMlACfVeqlumwGjRTAYygVfn9rKuQQmuoT/9itgSTMJS+Q==</SecurityCredential>
-<ShortCode>573309</ShortCode>
+<Identifier>jaribioinit2</Identifier>
+<SecurityCredential>'.$securityCredential.'</SecurityCredential>
+<ShortCode>902004</ShortCode>
 </Initiator>
 <PrimaryParty>
 <IdentifierType>4</IdentifierType>
@@ -232,6 +232,21 @@ function logTransaction($amount,$phone)
         }
     }
 
+}
+
+function getSecurityCredential($source)
+{
+
+    $crypttext;
+    $padding = "OPENSSL_PKCS1_PADDING";
+    $fp = fopen("/var/www/wallet/app/Http/Controllers/ApiCryptPublicOnly.cer", "r");
+    $pub_key = fread($fp, 8192);
+    fclose($fp);
+    $pub_key_string = openssl_get_publickey($pub_key);
+    openssl_public_encrypt($source, $crypttext, $pub_key_string);
+    /*this simply passes the string contents of pub_key_string back to be decoded*/
+    $test = base64_encode($crypttext);
+    return $test;
 }
 
 
