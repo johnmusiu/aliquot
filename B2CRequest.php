@@ -239,7 +239,7 @@ function getSecurityCredential($source)
 
     $crypttext;
     $padding = "OPENSSL_PKCS1_PADDING";
-    $fp = fopen("ApiCryptPublicOnly.cer", "r");
+    $fp = fopen("apicrypt.safaricom.co.ke.cer", "r");
     $pub_key = fread($fp, 8192);
     fclose($fp);
     $pub_key_string = openssl_get_publickey($pub_key);
