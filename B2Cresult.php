@@ -94,7 +94,7 @@ function logresult($result){
     }
     else
     {
-        str_replace("'",' ',$result);
+        $result = str_replace("'",' ',$result);
         $sql = "INSERT INTO payments_logs(`details`)VALUES('$result')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
