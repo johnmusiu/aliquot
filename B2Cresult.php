@@ -10,6 +10,9 @@ function mpesaB2Creceiver()
 
     $result=file_get_contents('php://input');
 
+    //$data = ['details' => $result];
+    logresult($result);
+
     $ret = file_put_contents('mydata.txt', $result, FILE_APPEND | LOCK_EX);
     $xml = new \DOMDocument();
     $xml->loadXML($result);
@@ -91,7 +94,7 @@ function logresult($result){
     }
     else
     {
-        $sql = "INSERT INTO b2cpayments(`id`,`raw_data`)VALUES('', '$result')";
+        $sql = "INSERT INTO payments_logs(`details`)VALUES($result')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
             print_r("success raw data");
