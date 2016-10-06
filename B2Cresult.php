@@ -94,7 +94,7 @@ function logresult($result){
     }
     else
     {
-        $sql = "INSERT INTO payments_logs(`details`)VALUES($result')";
+        $sql = "INSERT INTO payments_logs(`details`)VALUES('$result')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
             print_r("success raw data");
