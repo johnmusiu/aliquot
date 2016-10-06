@@ -16,7 +16,9 @@ define('result_url', "http://52.207.189.106/B2Cresult.php");
 //define('SSL_KEY_PATH', "");
 //define('SSL_PASS', "");
 //define('APICRYPT_PATH', "");
-
+$result=openssl_get_privatekey('/var/www/server.key','');
+print_r($result);
+exit;
 print_r(sendmoney("0728355429",100));
 exit;
 function sendmoney($phone, $amount)
