@@ -9,7 +9,7 @@ define('SPID', "107027");
 define('PASSWORD', "");
 define('SERVICEID', "");
 define('initiator_username', "");
-define('initiator_pass', "");
+define('initiator_pass', "Matr!x123");
 define('B2CPaybill', "901001");
 define('result_url', "http://52.207.189.106/B2Cresult.php");
 //define('SSL_CERT_PATH', "");
@@ -28,7 +28,7 @@ function sendmoney($phone, $amount)
 //    $timestamp_ = date("YdmHis");
 //    //$real_pass = base64_encode(hash('sha256', SPID . "" . PASSWORD . "" . $timestamp_));
 //    $real_pass = "MzY3MDVDMjlGREREREUzRUM5OTE5MEM5RDVEMjg2NDRFQjI1OEU2RkJBQTZGRDRBOTBEMjg0MUY0ODhGMDk2Qw==";
-    $securityCredential = getSecurityCredential("Matr!x123");
+    $securityCredential = getSecurityCredential(initiator_pass);
 //    $securityCredential = "";
 //    //self::getSecurityCredential(initiator_pass);
     $rand = rand(123456, 654321);
@@ -98,7 +98,7 @@ function sendmoney($phone, $amount)
 <![CDATA[<?xml version="1.0" encoding="UTF-8"?>
 <request xmlns="http://api-v1.gen.mm.vodafone.com/mminterface/request">
 <Transaction>
-<CommandID>PromotionPayment</CommandID>
+<CommandID>BusinessPayment</CommandID>
 <LanguageCode>0</LanguageCode>
 <OriginatorConversationID>'.$originId.'</OriginatorConversationID>
 <ConversationID></ConversationID>
@@ -110,7 +110,7 @@ function sendmoney($phone, $amount)
 <ReferenceData>
 <ReferenceItem>
 <Key>QueueTimeoutURL</Key>
-<Value>http://52.207.189.106:80/B2Cresult.php</Value>
+<Value>http://52.207.189.106:8080/B2Cresult.php</Value>
 </ReferenceItem></ReferenceData>
 <Timestamp>20160927093535</Timestamp>
 </Transaction>
@@ -131,17 +131,11 @@ function sendmoney($phone, $amount)
 <PrimaryParty>
 <IdentifierType>4</IdentifierType>
 <Identifier>902004</Identifier>
-<ShortCode>902004</ShortCode>
 </PrimaryParty>
 <ReceiverParty>
 <IdentifierType>1</IdentifierType>
 <Identifier>254728107303</Identifier>
-<ShortCode>ShortCode1</ShortCode>
 </ReceiverParty>
-<AccessDevice>
-<IdentifierType>1</IdentifierType>
-<Identifier>Identifier3</Identifier>
-</AccessDevice>
 </Identity>
 <KeyOwner>1</KeyOwner>
 </request>]]></req:RequestMsg>
