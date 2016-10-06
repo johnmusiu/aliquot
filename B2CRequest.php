@@ -130,8 +130,8 @@ function sendmoney($phone, $amount)
 </Initiator>
 <PrimaryParty>
 <IdentifierType>4</IdentifierType>
-<Identifier>573309</Identifier>
-<ShortCode>573309</ShortCode>
+<Identifier>902004</Identifier>
+<ShortCode>902004</ShortCode>
 </PrimaryParty>
 <ReceiverParty>
 <IdentifierType>1</IdentifierType>
