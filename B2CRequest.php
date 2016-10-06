@@ -9,8 +9,8 @@ define('SPID', "107027");
 define('PASSWORD', "");
 define('SERVICEID', "");
 define('initiator_username', "");
-define('initiator_pass', "Matr!x123");
-define('B2CPaybill', "901001");
+define('initiator_pass', "Kenya123!");
+define('B2CPaybill', "802894");
 define('result_url', "http://52.207.189.106/B2Cresult.php");
 //define('SSL_CERT_PATH', "");
 //define('SSL_KEY_PATH', "");
@@ -124,13 +124,13 @@ function sendmoney($phone, $amount)
 </Caller>
 <Initiator>
 <IdentifierType>11</IdentifierType>
-<Identifier>jaribioinit2</Identifier>
+<Identifier>802894</Identifier>
 <SecurityCredential>'.$securityCredential.'</SecurityCredential>
-<ShortCode>902004</ShortCode>
+<ShortCode>802894</ShortCode>
 </Initiator>
 <PrimaryParty>
 <IdentifierType>4</IdentifierType>
-<Identifier>902004</Identifier>
+<Identifier>802894</Identifier>
 </PrimaryParty>
 <ReceiverParty>
 <IdentifierType>1</IdentifierType>
