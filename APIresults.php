@@ -18,6 +18,7 @@ function mpesareceiver()
     $data['amount'] = $xml->getElementsByTagName('TransAmount')->item(0)->nodeValue;
     $data['raw'] = $input;
     $data['transaction_date'] = date("Y-m-d H:i:s", strtotime($xml->getElementsByTagName('TransTime')->item(0)->nodeValue));
+    $data['account_no'] = $xml->getElementsByTagName('BillRefNumber')->item(0)->nodeValue;
     //print_r($data);
     //exit;
     //once you have the data, save it to the database
@@ -29,6 +30,8 @@ function submitToDB($data){
     // Connect to db
     $db = new DB_CONNECT();
     $mysqli = $db->db_con;
+    
+    $email_support_gmail = 'aliquotltd@gmail.com';
 
     if($mysqli->connect_errno)
     {
@@ -41,7 +44,15 @@ function submitToDB($data){
         $phone = $data['phone'];
         $amount = $data['amount'];
         $date = $data['transaction_date'];
-        $sql = "INSERT INTO payments(`id`,`name`, `phone`, `transaction_id`, `amount`, `account`, `transaction_time`)VALUES('', '$name', '$phone', '$transaction_code', '$amount', '$data[NULL]', '$date')";
+        $account = $data['account_no'];
+        //notify admin
+        $email_msg = "Payment reference: ".$transaction_code."<br/>";
+		$email_msg .= "Amount: ".$amount."<br/>";
+		$email_msg .= "Name: ".$name."</br>";
+		$email_msg .= "Time: ".$date;
+		$send = mail($email_support_gmail, "PAYMENT ALERT", $email_msg);
+        
+        $sql = "INSERT INTO payments(`id`,`name`, `phone`, `transaction_id`, `amount`, `account`, `transaction_time`)VALUES('', '$name', '$phone', '$transaction_code', '$amount', '$account', '$date')";
         $result = $mysqli->query($sql);
         if($result==TRUE){
             print_r("success insert");
